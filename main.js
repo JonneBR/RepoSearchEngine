@@ -1,14 +1,23 @@
 const inputUser = document.getElementById('user');
-
 const buttonElement = document.querySelector('button');
-console.log('button', buttonElement);
 
 const name = JSON.parse(localStorage.getItem('list_names')) || [];
 
-function addName(liValue) {
+function addNameArray(liValue) {
   var nameList = liValue;
   name.push(nameList);
   saveToStorage();
+}
+
+function printArrayNames() {
+  if (name.length > 0) {
+    for (var i = 0; i < name.length; i++) {
+      var lista = document.getElementById('lista');
+      var li = document.createElement('li');
+      li.innerHTML = name[i];
+      lista.appendChild(li);
+    }
+  }
 }
 
 function acessarRepo(repoUser) {
@@ -28,8 +37,7 @@ function acessarRepo(repoUser) {
       for (var i = 0; i < objLength; i++) {
         var li = document.createElement('li');
         li.innerHTML = response.data[i].name;
-        addName(li.innerHTML);
-        console.log('inner', li.innerHTML);
+        addNameArray(li.innerHTML);
         lista.appendChild(li);
       }
     })
@@ -60,6 +68,7 @@ function buscarNomeNaAPI() {
   //   console.log(inputUser.value);
 }
 buttonElement.onclick = buscarNomeNaAPI;
+printArrayNames();
 
 function saveToStorage() {
   localStorage.setItem('list_names', JSON.stringify(name));
