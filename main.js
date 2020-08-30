@@ -8,6 +8,18 @@ const name = JSON.parse(localStorage.getItem('list_names')) || [];
 
 console.log('NAME', name);
 
+function deleteRepo() {
+  var arrayLength = name.length;
+  var liElement = document.getElementById('lista');
+  for (var i = 0; i < arrayLength; i++) {
+    // console.log('length', name.length);
+    // console.log('i: ', i);
+    name.splice(0, 1);
+    saveToStorage();
+    liElement.removeChild(liElement.childNodes[0]);
+  }
+}
+
 function addNameArray(liValue) {
   // var nameList = liValue;
   name.push(liValue);
@@ -73,6 +85,7 @@ function buscarNomeNaAPI() {
   //   console.log(inputUser.value);
 }
 buttonAdd.onclick = buscarNomeNaAPI;
+buttonDelete.onclick = deleteRepo;
 printArrayNames();
 
 function saveToStorage() {
