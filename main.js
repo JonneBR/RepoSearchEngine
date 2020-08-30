@@ -1,11 +1,16 @@
 const inputUser = document.getElementById('user');
-const buttonElement = document.querySelector('button');
+const buttonAdd = document.getElementById('btn-add');
+const buttonDelete = document.getElementById('btn-delete');
+console.log('button', buttonAdd);
+console.log('buttonDelete', buttonDelete);
 
 const name = JSON.parse(localStorage.getItem('list_names')) || [];
 
+console.log('NAME', name);
+
 function addNameArray(liValue) {
-  var nameList = liValue;
-  name.push(nameList);
+  // var nameList = liValue;
+  name.push(liValue);
   saveToStorage();
 }
 
@@ -67,7 +72,7 @@ function buscarNomeNaAPI() {
     });
   //   console.log(inputUser.value);
 }
-buttonElement.onclick = buscarNomeNaAPI;
+buttonAdd.onclick = buscarNomeNaAPI;
 printArrayNames();
 
 function saveToStorage() {
