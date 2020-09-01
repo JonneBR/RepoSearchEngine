@@ -1,0 +1,32 @@
+:root {
+  font-size: 80%;
+}
+
+#page-landing {
+  background: var(--color-primary);
+}
+
+#page-landing #container {
+  /* border: 1px solid red; */
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+
+.search-container {
+  /* border: 1px solid red; */
+  /* padding: 1.6rem; */
+  display: flex;
+  align-content: auto;
+  justify-content: center;
+  margin: 1.6rem;
+}
+
+.button-container {
+  /* padding: 1.6rem; */
+  margin-bottom: 1.6rem;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  /* margin: 2.2rem 5; */
+  /* border: 1px solid red; */
+}

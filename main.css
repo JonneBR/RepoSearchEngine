@@ -1,6 +1,7 @@
 :root {
   --color-primary: #2e313b;
-  --color-primary-button: #00bdff;
+  --color-primary-add: #00bdff;
+  --color-primary-delete: #ff001a;
 
   font-size: 60%;
 }
@@ -28,8 +29,4 @@ textarea {
 #container {
   width: 90vw;
   max-width: 700px;
-}
-
-#page-landing {
-  background: var(--color-primary);
 }
