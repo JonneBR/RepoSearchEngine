@@ -1,5 +1,33 @@
 :root {
   --color-primary: #2e313b;
+  --color-primary-button: #00bdff;
+
+  font-size: 60%;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+input,
+button,
+textarea {
+  font: 500 1.6rem Bree Serif;
+}
+
+#container {
+  width: 90vw;
+  max-width: 700px;
 }
 
 #page-landing {

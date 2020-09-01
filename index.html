@@ -6,14 +6,25 @@
     <title>Exercicio 2</title>
 
     <link rel="stylesheet" href="main.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body id="page-landing">
-    <input id="user" type="text" name="user" />
-    <button id="btn-add">Adicionar</button>
-    <button id="btn-delete">Deletar Tudo</button>
-    <ul id="lista"></ul>
-    <!-- <li id="carregando">Carregando...</li> -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="main.js"></script>
+    <div id="container">
+      <div class="search-container">
+        <input id="user" type="text" name="user" />
+        <button id="btn-add">Adicionar</button>
+        <button id="btn-delete">Deletar Tudo</button>
+      </div>
+      <div class="list-container">
+        <ul id="lista"></ul>
+      </div>
+
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src="main.js"></script>
+    </div>
   </body>
 </html>
