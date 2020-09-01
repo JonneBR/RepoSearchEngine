@@ -6,10 +6,8 @@
   background: var(--color-primary);
 }
 
-#page-landing #container {
+#container {
   /* border: 1px solid red; */
-  /* margin-top: 10rem;
-  margin-bottom: 10rem; */
   display: grid;
   align-items: center;
   justify-content: center;
@@ -50,4 +48,12 @@
   width: 11rem;
   cursor: pointer;
   /* border: 1px solid red; */
+}
+
+.list-container {
+  /* border: 1px solid red; */
+  padding: 1.5rem;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }

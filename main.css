@@ -7,10 +7,13 @@
 }
 
 body {
-  height: 100vh;
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: center;
+}
+
+#container {
+  margin-top: 70px;
 }
 
 * {
