@@ -7,7 +7,6 @@
 }
 
 #container {
-  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +18,6 @@
   align-items: center;
   justify-content: center;
   margin: 1.6rem;
-  /* border: 1px solid red; */
 }
 
 .button-container {
@@ -28,16 +26,14 @@
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  /* border: 1px solid red; */
 }
 
 #btn-add {
   margin-top: 1.5rem;
   margin-left: 3.5rem;
-  border: 0;
+  border: 2px solid;
   background: none;
   color: var(--color-primary-add);
-  /* background: var(--color-primary-add); */
   width: 15rem;
   height: 5rem;
   text-decoration: none;
@@ -45,14 +41,16 @@
   display: inline-block;
   text-transform: uppercase;
   /* overflow: hidden; */
-  transition: 0.5s;
+  transition: 300ms;
   letter-spacing: 5px;
   /* border: 1px solid red; */
 }
 
 #btn-add:hover {
   background: var(--color-primary-add);
-  color: var(--color-primary-font);
+  border: 2px solid var(--color-primary-add);
+  box-shadow: 0 0 5px;
+  color: var(--color-primary);
   box-shadow: 0 0 5px var(--color-primary-add),
     0 0 25px var(--color-primary-add), 0 0 50px var(--color-primary-add),
     0 0 200px var(--color-primary-add);
@@ -61,25 +59,23 @@
 #btn-delete {
   margin: 3.5rem;
   background: none;
-  /* background: var(--color-primary-delete); */
   color: var(--color-primary-delete);
-  border: 0;
+  border: 2px solid;
   text-decoration: none;
   width: 15rem;
   height: 5rem;
   align-items: center;
-  /* border: 1px solid red; */
   cursor: pointer;
   text-transform: uppercase;
-  /* overflow: hidden; */
   transition: 0.5s;
   letter-spacing: 5px;
-  /* border: 1px solid red; */
 }
 
 #btn-delete:hover {
   background: var(--color-primary-delete);
-  color: var(--color-primary-font);
+  border: 2px solid var(--color-primary-delete);
+  box-shadow: 0 0 5px;
+  color: var(--color-primary);
   box-shadow: 0 0 5px var(--color-primary-delete),
     0 0 25px var(--color-primary-delete), 0 0 50px var(--color-primary-add),
     0 0 200px var(--color-primary-delete);
