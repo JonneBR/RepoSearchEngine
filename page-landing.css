@@ -18,6 +18,17 @@
   align-items: center;
   justify-content: center;
   margin: 1.6rem;
+  /* border: 1px solid red; */
+}
+
+.search-container input[type='text'] {
+  padding-left: 2rem;
+}
+
+.search-container i {
+  position: absolute;
+  margin-right: 15.7rem;
+  /* border: 1px solid red; */
 }
 
 .button-container {
