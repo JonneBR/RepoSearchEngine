@@ -3,14 +3,16 @@
   --color-primary-add: #00bdff;
   --color-primary-delete: #ff001a;
   --color-primary-list: greenyellow;
+  --color-primary-font: #051100;
 
   font-size: 60%;
 }
 
 body {
-  display: grid;
+  display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 #container {
