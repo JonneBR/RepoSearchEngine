@@ -102,8 +102,20 @@
   color: var(--color-primary-list);
 }
 
+#logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
 #logo-image {
-  /* border: 1px solid red; */
   margin-top: 10rem;
-  width: 15rem;
+  width: 12rem;
+}
+
+#logo-text {
+  margin-bottom: 1rem;
+  width: 30rem;
 }
