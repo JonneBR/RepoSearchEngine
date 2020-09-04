@@ -119,3 +119,27 @@
   margin-bottom: 1rem;
   width: 30rem;
 }
+
+@media (min-width: 900px) {
+  #logo-container {
+    padding-top: 10rem;
+    display: inline-flexbox;
+    flex-direction: row;
+    /* align-items: center;
+    align-content: space-between; */
+    width: 120%;
+    /* border: 1px solid red; */
+  }
+  #logo-container img {
+    /* border: 1px solid red; */
+    margin: 0;
+  }
+  #logo-container #logo-text {
+    margin-left: 0;
+    width: 45rem;
+  }
+  #logo-container #logo-image {
+    margin-left: 0;
+    width: 15rem;
+  }
+}
