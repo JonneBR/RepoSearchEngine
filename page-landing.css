@@ -143,4 +143,33 @@
     margin-left: 0;
     width: 15rem;
   }
+
+  .button-container {
+    margin-bottom: 1.6rem;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    /* border: 1px solid red; */
+    margin: 0;
+  }
+  #btn-add {
+    margin: 0;
+    margin-left: 3rem;
+    align-self: center;
+    /* justify-content: center; */
+    border: 2px solid;
+    background: none;
+    color: var(--color-primary-add);
+    width: 15rem;
+    height: 5rem;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    text-transform: uppercase;
+    /* overflow: hidden; */
+    transition: 300ms;
+    letter-spacing: 5px;
+    /* border: 1px solid red; */
+  }
 }
