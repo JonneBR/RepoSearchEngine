@@ -16,19 +16,20 @@
 
 .search-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
   margin: 1.6rem;
   /* border: 1px solid red; */
 }
 
 .search-container input[type='text'] {
   padding-left: 2rem;
+  /* border: 1px solid red; */
 }
 
 .search-container i {
   position: absolute;
-  margin-right: 15.7rem;
+  /* margin-top: 0.4rem; */
+  margin: 0.4rem;
   /* border: 1px solid red; */
 }
 
