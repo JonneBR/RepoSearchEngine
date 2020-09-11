@@ -8,6 +8,8 @@ const name = JSON.parse(localStorage.getItem('list_names')) || [];
 
 console.log('NAME', name);
 
+function getUserProfileImage() {}
+
 function deleteRepo() {
   var arrayLength = name.length;
   var liElement = document.getElementById('lista');
@@ -21,14 +23,18 @@ function deleteRepo() {
 }
 
 function addNameArray(liValue) {
-  // var nameList = liValue;
   name.push(liValue);
   saveToStorage();
 }
 
 function printArrayNames() {
   if (name.length > 0) {
-    for (var i = 0; i < name.length; i++) {
+    for (var i = 0; i < 1; i++) {
+      var img = document.createElement('img');
+      img.src = name[i];
+      document.getElementById('lista').appendChild(img);
+    }
+    for (var i = 1; i < name.length; i++) {
       var lista = document.getElementById('lista');
       var li = document.createElement('li');
       li.innerHTML = name[i];
@@ -37,7 +43,7 @@ function printArrayNames() {
   }
 }
 
-function acessarRepo(repoUser) {
+function acessarRepo(repoUser, profileImage) {
   var carregando = document.getElementById('carregando');
   if (carregando && carregando.length) carregando.outerHTML = '';
   var lista = document.getElementById('lista');
@@ -51,8 +57,14 @@ function acessarRepo(repoUser) {
 
       lista.innerHTML = lista_html;
 
+      var img = document.createElement('img');
+      img.src = profileImage;
+      document.getElementById('lista').appendChild(img);
+      addNameArray(profileImage);
+
       for (var i = 0; i < objLength; i++) {
         var li = document.createElement('li');
+
         li.innerHTML = response.data[i].name;
         addNameArray(li.innerHTML);
         lista.appendChild(li);
@@ -70,10 +82,11 @@ function buscarNomeNaAPI() {
     .get('https://api.github.com/users/' + inputUserNameToLower)
     .then(function (response) {
       var apiUserNameToLower = response.data.login.toLowerCase();
+      var profileImage = response.data.avatar_url;
+
       if (inputUserNameToLower === apiUserNameToLower) {
         repoUser = response.data.repos_url;
-        acessarRepo(repoUser);
-        // console.log(response.data.login);
+        acessarRepo(repoUser, profileImage);
       }
     })
     .catch(function (error) {
