@@ -75,7 +75,7 @@ function acessarRepo(repoUser, profileImage) {
     });
 }
 
-function buscarNomeNaAPI() {
+function buscarDadosNaApi() {
   var inputUserNameToLower = inputUser.value.toLowerCase();
 
   axios
@@ -83,6 +83,8 @@ function buscarNomeNaAPI() {
     .then(function (response) {
       var apiUserNameToLower = response.data.login.toLowerCase();
       var profileImage = response.data.avatar_url;
+      var userUrl = response.data.html_url;
+      console.log(userUrl);
 
       if (inputUserNameToLower === apiUserNameToLower) {
         repoUser = response.data.repos_url;
@@ -97,7 +99,7 @@ function buscarNomeNaAPI() {
     });
   //   console.log(inputUser.value);
 }
-buttonAdd.onclick = buscarNomeNaAPI;
+buttonAdd.onclick = buscarDadosNaApi;
 buttonDelete.onclick = deleteRepo;
 printArrayNames();
 
