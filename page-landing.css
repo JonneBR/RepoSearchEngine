@@ -101,6 +101,22 @@
   align-content: center;
   justify-content: center;
   color: var(--color-primary-list);
+  /* border: 1px solid red; */
+}
+
+.menu-container {
+  margin-bottom: 4rem;
+}
+
+.menu-container a {
+  text-decoration: none;
+  margin: 1rem;
+  color: var(--color-primary-list);
+  transition: 0.5s;
+}
+
+.menu-container a:hover {
+  color: grey;
 }
 
 #lista img {
