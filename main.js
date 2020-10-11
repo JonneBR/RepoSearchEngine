@@ -1,6 +1,7 @@
 const inputUser = document.getElementById('user');
 const buttonAdd = document.getElementById('btn-add');
 const buttonDelete = document.getElementById('btn-delete');
+const menuContainer = document.getElementsByClassName('menu-container');
 console.log('button', buttonAdd);
 console.log('buttonDelete', buttonDelete);
 
@@ -8,14 +9,15 @@ const name = JSON.parse(localStorage.getItem('list_names')) || [];
 
 console.log('NAME', name);
 
-function getUserProfileImage() {}
+function getMenuHiddenOrVisible(array) {
+  array > 0 ? menuContainer[0].style.visibility = 'visible' : menuContainer[0].style.visibility = 'hidden'; 
+}
 
 function deleteRepo() {
   var arrayLength = name.length;
   var liElement = document.getElementById('lista');
   for (var i = 0; i < arrayLength; i++) {
-    // console.log('length', name.length);
-    // console.log('i: ', i);
+    getMenuHiddenOrVisible(0);
     name.splice(0, 1);
     saveToStorage();
     liElement.removeChild(liElement.childNodes[0]);
@@ -33,6 +35,7 @@ function printArrayNames() {
       var img = document.createElement('img');
       img.src = name[i];
       document.getElementById('lista').appendChild(img);
+     
     }
     for (var i = 1; i < name.length; i++) {
       var lista = document.getElementById('lista');
@@ -41,6 +44,7 @@ function printArrayNames() {
       lista.appendChild(li);
     }
   }
+  getMenuHiddenOrVisible(name.length);
 }
 
 function acessarRepo(repoUser, profileImage) {
@@ -54,8 +58,8 @@ function acessarRepo(repoUser, profileImage) {
     .get(repoUser)
     .then(function (response) {
       var objLength = response.data.length;
-
       lista.innerHTML = lista_html;
+    
 
       var img = document.createElement('img');
       img.src = profileImage;
@@ -67,7 +71,9 @@ function acessarRepo(repoUser, profileImage) {
 
         li.innerHTML = response.data[i].name;
         addNameArray(li.innerHTML);
+        getMenuHiddenOrVisible(li.innerHTML);
         lista.appendChild(li);
+        menuContainer[0].style.visibility = 'visible';
       }
     })
     .catch(function (error) {
