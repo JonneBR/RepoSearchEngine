@@ -2,6 +2,11 @@ const inputUser = document.getElementById('user');
 const buttonAdd = document.getElementById('btn-add');
 const buttonDelete = document.getElementById('btn-delete');
 const menuContainer = document.getElementsByClassName('menu-container');
+const userProfile = document.getElementById('user-profile');
+
+const userRepositories = document.getElementById('user-repositories');
+// console.log("user", userProfile);
+
 console.log('button', buttonAdd);
 console.log('buttonDelete', buttonDelete);
 

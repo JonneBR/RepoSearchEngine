@@ -107,6 +107,7 @@
 .menu-container {
   margin-bottom: 4rem;
   visibility: hidden;
+  cursor: pointer;
 }
 
 .menu-container a {
