@@ -12,6 +12,9 @@ console.log('buttonDelete', buttonDelete);
 
 const name = JSON.parse(localStorage.getItem('list_names')) || [];
 
+const userProfileData = JSON.parse(localStorage.getItem('list_names')) || [];
+
+
 console.log('NAME', name);
 
 function getMenuHiddenOrVisible(array) {
@@ -52,39 +55,42 @@ function printArrayNames() {
   getMenuHiddenOrVisible(name.length);
 }
 
-function acessarRepo(repoUser, profileImage) {
-  var carregando = document.getElementById('carregando');
-  if (carregando && carregando.length) carregando.outerHTML = '';
-  var lista = document.getElementById('lista');
-  var lista_html = lista.innerHTML;
-  lista.innerHTML = '<li id="carregando">Carregando...</li>';
 
-  axios
-    .get(repoUser)
-    .then(function (response) {
-      var objLength = response.data.length;
-      lista.innerHTML = lista_html;
+
+// function acessarRepo(repoUser, profileImage) {
+//   var carregando = document.getElementById('carregando');
+//   if (carregando && carregando.length) carregando.outerHTML = '';
+//   var lista = document.getElementById('lista');
+//   var lista_html = lista.innerHTML;
+//   lista.innerHTML = '<li id="carregando">Carregando...</li>';
+
+//   axios
+//     .get(repoUser)
+//     .then(function (response) {
+//       var objLength = response.data.length;
+//       lista.innerHTML = lista_html;
     
 
-      var img = document.createElement('img');
-      img.src = profileImage;
-      document.getElementById('lista').appendChild(img);
-      addNameArray(profileImage);
+//       var img = document.createElement('img');
+//       img.src = profileImage;
+//       document.getElementById('lista').appendChild(img);
+//       addNameArray(profileImage);
 
-      for (var i = 0; i < objLength; i++) {
-        var li = document.createElement('li');
+//       for (var i = 0; i < objLength; i++) {
+//         var li = document.createElement('li');
 
-        li.innerHTML = response.data[i].name;
-        addNameArray(li.innerHTML);
-        getMenuHiddenOrVisible(li.innerHTML);
-        lista.appendChild(li);
-        menuContainer[0].style.visibility = 'visible';
-      }
-    })
-    .catch(function (error) {
-      console.warn(error);
-    });
-}
+//         li.innerHTML = response.data[i].name;
+//         addNameArray(li.innerHTML);
+//         getMenuHiddenOrVisible(li.innerHTML);
+//         lista.appendChild(li);
+//         menuContainer[0].style.visibility = 'visible';
+//       }
+//     })
+//     .catch(function (error) {
+//       console.warn(error);
+//     });
+// }
+
 
 function buscarDadosNaApi() {
   var inputUserNameToLower = inputUser.value.toLowerCase();
@@ -92,6 +98,7 @@ function buscarDadosNaApi() {
   axios
     .get('https://api.github.com/users/' + inputUserNameToLower)
     .then(function (response) {
+      userInformations(response);
       var apiUserNameToLower = response.data.login.toLowerCase();
       var profileImage = response.data.avatar_url;
       var userUrl = response.data.html_url;

@@ -9,6 +9,7 @@ function acessarRepo(repoUser, profileImage) {
       .get(repoUser)
       .then(function (response) {
         var objLength = response.data.length;
+        console.log(response.data);
         lista.innerHTML = lista_html;
       
   
