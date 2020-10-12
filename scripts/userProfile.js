@@ -5,5 +5,27 @@ function userInformations(response){
     var userCompany = response.data.company;
     var userBio = response.data.bio;
     console.log('teste exertnal',response.data);
+    saveData(profileImage);
+    saveData(userName);
+    saveData(userLocation);
+    saveData(userCompany);
+    saveData(userBio);
+   
+   
+
+}
+
+function saveData(responseInformation){
+
+    for (var i = 0; i < 5; i++) {
+        var li = document.createElement('li');
+
+        li.innerHTML = responseInformation;
+        addNameArray(li.innerHTML);
+        getMenuHiddenOrVisible(li.innerHTML);
+        lista.appendChild(li);
+        menuContainer[0].style.visibility = 'visible';
+        console.log("??", responseInformation);
+      }
 
 }
