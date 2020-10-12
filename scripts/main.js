@@ -100,13 +100,13 @@ function buscarDadosNaApi() {
     .then(function (response) {
       userInformations(response);
       var apiUserNameToLower = response.data.login.toLowerCase();
-      var profileImage = response.data.avatar_url;
+      // var profileImage = response.data.avatar_url;
       var userUrl = response.data.html_url;
       console.log(userUrl);
 
       if (inputUserNameToLower === apiUserNameToLower) {
-        repoUser = response.data.repos_url;
-        acessarRepo(repoUser, profileImage);
+        // repoUser = response.data.repos_url;
+        acessarRepo(response);
       }
     })
     .catch(function (error) {

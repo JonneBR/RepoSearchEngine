@@ -1,4 +1,6 @@
-function acessarRepo(repoUser, profileImage) {
+function acessarRepo(response) {
+    var repoUser = response.data.repos_url;
+    var profileImage = response.data.avatar_url;
     var carregando = document.getElementById('carregando');
     if (carregando && carregando.length) carregando.outerHTML = '';
     var lista = document.getElementById('lista');
@@ -9,7 +11,7 @@ function acessarRepo(repoUser, profileImage) {
       .get(repoUser)
       .then(function (response) {
         var objLength = response.data.length;
-        console.log(response.data);
+        console.log('data',response.data);
         lista.innerHTML = lista_html;
       
   
