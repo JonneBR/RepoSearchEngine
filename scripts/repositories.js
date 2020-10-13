@@ -1,4 +1,5 @@
 function acessarRepo(response) {
+    console.log('RETURN', response);
     var repoUser = response.data.repos_url;
     var profileImage = response.data.avatar_url;
     var carregando = document.getElementById('carregando');

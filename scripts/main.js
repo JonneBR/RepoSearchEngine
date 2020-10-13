@@ -45,7 +45,7 @@ function printArrayNames() {
       document.getElementById('lista').appendChild(img);
      
     }
-    for (var i = 1; i < name.length; i++) {
+    for (var i = 1; i < name.length; i++) { // bug of image and Name is here
       var lista = document.getElementById('lista');
       var li = document.createElement('li');
       li.innerHTML = name[i];
@@ -92,22 +92,27 @@ function printArrayNames() {
 // }
 
 
-function buscarDadosNaApi() {
+
+
+async function buscarDadosNaApi() {
   var inputUserNameToLower = inputUser.value.toLowerCase();
 
-  axios
-    .get('https://api.github.com/users/' + inputUserNameToLower)
-    .then(function (response) {
+  axios.get('https://api.github.com/users/' + inputUserNameToLower)
+  .then(function (response) {
       
       var apiUserNameToLower = response.data.login.toLowerCase();
       // var profileImage = response.data.avatar_url;
       var userUrl = response.data.html_url;
       console.log(userUrl);
 
+     
+
       if (inputUserNameToLower === apiUserNameToLower) {
+        getMenuHiddenOrVisible(1);
+      
         // repoUser = response.data.repos_url;
         acessarRepo(response);
-        
+       
       }
       
     })
@@ -117,7 +122,6 @@ function buscarDadosNaApi() {
         'Não pode fazer a requisição. Usuário pode estár inválido.'
       );
     });
-  //   console.log(inputUser.value);
 }
 
 buttonAdd.onclick = buscarDadosNaApi;
@@ -129,12 +133,7 @@ printArrayNames();
 
 window.addEventListener("load", () => {
   document.querySelector("#user-profile").addEventListener("click", e => {
-      // alert('response');
       userInformations()
-      // userInformations(response);
-      // Can also cancel the event and manually navigate
-      // e.preventDefault();
-      // window.location = e.target.href;
   });
 });
 
@@ -142,7 +141,8 @@ window.addEventListener("load", () => {
   document.querySelector("#user-repositories").addEventListener("click", e => {
       // alert('response'); 
       deleteRepo();
-      buscarDadosNaApi()
+      // buscarDadosNaApi()
+      buscarDadosNaApi();
       // userInformations(response);
       // Can also cancel the event and manually navigate
       // e.preventDefault();

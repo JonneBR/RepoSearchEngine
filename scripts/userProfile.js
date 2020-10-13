@@ -16,7 +16,7 @@ function userInformations(){
     var userLocation = response.data.location;
     var userCompany = response.data.company;
     var userBio = response.data.bio;
-    console.log('teste exertnal',response.data);
+    // console.log('teste exertnal',response.data);
     // saveData(profileImage);
     saveData('Nome: ',userName);
     saveData('País: ',userLocation);
@@ -47,7 +47,7 @@ function saveData(info,responseInformation){
         getMenuHiddenOrVisible(p.innerHTML);
         lista.appendChild(p);
         menuContainer[0].style.visibility = 'visible';
-        console.log("??", responseInformation);
+        // console.log("??", responseInformation);
       
 
 }
