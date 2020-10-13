@@ -108,13 +108,16 @@
   margin-bottom: 4rem;
   visibility: hidden;
   cursor: pointer;
+  /* border: 1px solid red; */
 }
 
 .menu-container a {
   text-decoration: none;
   margin: 1rem;
-  color: var(--color-primary-list);
+  color: white;
   transition: 0.5s;
+  align-content: center;
+  justify-content: center;
 }
 
 .menu-container a:hover {

@@ -5,7 +5,7 @@ const menuContainer = document.getElementsByClassName('menu-container');
 const userProfile = document.getElementById('user-profile');
 
 const userRepositories = document.getElementById('user-repositories');
-// console.log("user", userProfile);
+console.log("user", userProfile);
 
 console.log('button', buttonAdd);
 console.log('buttonDelete', buttonDelete);
@@ -98,7 +98,7 @@ function buscarDadosNaApi() {
   axios
     .get('https://api.github.com/users/' + inputUserNameToLower)
     .then(function (response) {
-      userInformations(response);
+      
       var apiUserNameToLower = response.data.login.toLowerCase();
       // var profileImage = response.data.avatar_url;
       var userUrl = response.data.html_url;
@@ -107,7 +107,9 @@ function buscarDadosNaApi() {
       if (inputUserNameToLower === apiUserNameToLower) {
         // repoUser = response.data.repos_url;
         acessarRepo(response);
+        
       }
+      
     })
     .catch(function (error) {
       console.warn(
@@ -117,9 +119,38 @@ function buscarDadosNaApi() {
     });
   //   console.log(inputUser.value);
 }
+
 buttonAdd.onclick = buscarDadosNaApi;
 buttonDelete.onclick = deleteRepo;
+// userProfile.onclick = userInformations;
+
+
 printArrayNames();
+
+window.addEventListener("load", () => {
+  document.querySelector("#user-profile").addEventListener("click", e => {
+      // alert('response');
+      userInformations()
+      // userInformations(response);
+      // Can also cancel the event and manually navigate
+      // e.preventDefault();
+      // window.location = e.target.href;
+  });
+});
+
+window.addEventListener("load", () => {
+  document.querySelector("#user-repositories").addEventListener("click", e => {
+      // alert('response'); 
+      deleteRepo();
+      buscarDadosNaApi()
+      // userInformations(response);
+      // Can also cancel the event and manually navigate
+      // e.preventDefault();
+      // window.location = e.target.href;
+  });
+});
+
+
 
 function saveToStorage() {
   localStorage.setItem('list_names', JSON.stringify(name));
