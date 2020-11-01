@@ -5,10 +5,6 @@ const menuContainer = document.getElementsByClassName('menu-container');
 const userProfile = document.getElementById('user-profile');
 
 const userRepositories = document.getElementById('user-repositories');
-console.log("user", userProfile);
-
-console.log('button', buttonAdd);
-console.log('buttonDelete', buttonDelete);
 
 const name = JSON.parse(localStorage.getItem('list_names')) || [];
 
@@ -46,7 +42,7 @@ function addNameArray(liValue) {
 }
 
 function printArrayNames() {
-  name.length > 5 ? highligthMenuRepo(1) : highligthMenuProfile(1); // Highligth menu
+  name.length > 5 ? highligthMenuRepo(0) : highligthMenuProfile(1); // Highligth menu
 
   if (name.length > 0) {
     for (var i = 0; i < 1; i++) {
@@ -104,25 +100,18 @@ function printArrayNames() {
 
 
 
-async function buscarDadosNaApi() {
-  var inputUserNameToLower = inputUser.value.toLowerCase();
-  highligthMenuRepo(1);
+async function checarUsuarioExisteAPI() {
+  // var profileImage = response.data.avatar_url;
+      // var userUrl = response.data.html_url;
+      // console.log('?',userUrl);
+  // highligthMenuRepo(1);
 
-  axios.get('https://api.github.com/users/' + inputUserNameToLower)
+  axios.get('https://api.github.com/users/' + inputUser.value.toLowerCase())
   .then(function (response) {
-      
-      var apiUserNameToLower = response.data.login.toLowerCase();
-      // var profileImage = response.data.avatar_url;
-      var userUrl = response.data.html_url;
-      console.log(userUrl);
-
-     
-
-      if (inputUserNameToLower === apiUserNameToLower) {
+      if (inputUser.value.toLowerCase() === response.data.login.toLowerCase()) {
         getMenuHiddenOrVisible(1);
-      
         // repoUser = response.data.repos_url;
-        acessarRepo(response);
+        PegarDadosNoRepositorio(response);
        
       }
       
@@ -135,7 +124,7 @@ async function buscarDadosNaApi() {
     });
 }
 
-buttonAdd.onclick = buscarDadosNaApi;
+buttonAdd.onclick = checarUsuarioExisteAPI;
 buttonDelete.onclick = deleteRepo;
 // userProfile.onclick = userInformations;
 
@@ -157,7 +146,7 @@ window.addEventListener("load", () => {
       // buscarDadosNaApi()
       highligthMenuProfile(0);
     highligthMenuRepo(1);
-      buscarDadosNaApi();
+      checarUsuarioExisteAPI();
       // userInformations(response);
       // Can also cancel the event and manually navigate
       // e.preventDefault();

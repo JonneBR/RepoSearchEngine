@@ -1,4 +1,4 @@
-function acessarRepo(response) {
+function PegarDadosNoRepositorio(response) {
     console.log('RETURN', response);
     var repoUser = response.data.repos_url;
     var profileImage = response.data.avatar_url;
