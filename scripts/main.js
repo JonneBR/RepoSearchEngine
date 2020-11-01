@@ -97,6 +97,13 @@ function printArrayNames() {
 //     });
 // }
 
+// function ExibirMensagemCarregando(){
+//   var carregando = document.getElementById('carregando');
+//   if (carregando && carregando.length) carregando.outerHTML = '';
+//   var lista = document.getElementById('lista');
+//   var lista_html = lista.innerHTML;
+//   lista.innerHTML = '<li id="carregando">Carregando...</li>';
+// }
 
 
 
