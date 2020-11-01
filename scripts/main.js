@@ -21,6 +21,14 @@ function getMenuHiddenOrVisible(array) {
   array > 0 ? menuContainer[0].style.visibility = 'visible' : menuContainer[0].style.visibility = 'hidden'; 
 }
 
+function highligthMenuProfile(clicked){
+  clicked > 0 ? userProfile.style.color = 'grey' : userProfile.style.color = 'white';
+}
+
+function highligthMenuRepo(clicked){
+  clicked > 0 ? userRepositories.style.color = 'grey' : userRepositories.style.color = 'white';
+}
+
 function deleteRepo() {
   var arrayLength = name.length;
   var liElement = document.getElementById('lista');
@@ -38,6 +46,8 @@ function addNameArray(liValue) {
 }
 
 function printArrayNames() {
+  name.length > 5 ? highligthMenuRepo(1) : highligthMenuProfile(1); // Highligth menu
+
   if (name.length > 0) {
     for (var i = 0; i < 1; i++) {
       var img = document.createElement('img');
@@ -96,6 +106,7 @@ function printArrayNames() {
 
 async function buscarDadosNaApi() {
   var inputUserNameToLower = inputUser.value.toLowerCase();
+  highligthMenuRepo(1);
 
   axios.get('https://api.github.com/users/' + inputUserNameToLower)
   .then(function (response) {
@@ -133,6 +144,8 @@ printArrayNames();
 
 window.addEventListener("load", () => {
   document.querySelector("#user-profile").addEventListener("click", e => {
+    highligthMenuProfile(1);
+    highligthMenuRepo(0);
       userInformations()
   });
 });
@@ -142,6 +155,8 @@ window.addEventListener("load", () => {
       // alert('response'); 
       deleteRepo();
       // buscarDadosNaApi()
+      highligthMenuProfile(0);
+    highligthMenuRepo(1);
       buscarDadosNaApi();
       // userInformations(response);
       // Can also cancel the event and manually navigate
