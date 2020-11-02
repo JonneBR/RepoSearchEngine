@@ -3,6 +3,7 @@ const buttonAdd = document.getElementById('btn-add');
 const buttonDelete = document.getElementById('btn-delete');
 const menuContainer = document.getElementsByClassName('menu-container');
 const userProfile = document.getElementById('user-profile');
+const urlAPI = 'https://api.github.com/users/';
 
 const userRepositories = document.getElementById('user-repositories');
 
@@ -97,28 +98,14 @@ function printArrayNames() {
 //     });
 // }
 
-// function ExibirMensagemCarregando(){
-//   var carregando = document.getElementById('carregando');
-//   if (carregando && carregando.length) carregando.outerHTML = '';
-//   var lista = document.getElementById('lista');
-//   var lista_html = lista.innerHTML;
-//   lista.innerHTML = '<li id="carregando">Carregando...</li>';
-// }
-
-
-
 async function checarUsuarioExisteAPI() {
-  // var profileImage = response.data.avatar_url;
-      // var userUrl = response.data.html_url;
-      // console.log('?',userUrl);
-  // highligthMenuRepo(1);
-
-  axios.get('https://api.github.com/users/' + inputUser.value.toLowerCase())
+ 
+  axios.get(urlAPI + inputUser.value.toLowerCase())
   .then(function (response) {
       if (inputUser.value.toLowerCase() === response.data.login.toLowerCase()) {
         getMenuHiddenOrVisible(1);
         // repoUser = response.data.repos_url;
-        PegarDadosNoRepositorio(response);
+        PegarDadosNaAPI(response);
        
       }
       
