@@ -1,15 +1,15 @@
 function PegarDadosNaAPI(response) {
     console.log('RETURN', response);
-    var repoUser = response.data.repos_url;
     var profileImage = response.data.avatar_url;
+    console.log(profileImage);
     var lista = document.getElementById('lista');
     
   
     axios
-      .get(repoUser)
+      .get(response.data.repos_url)
       .then(function (response) {
         var objLength = response.data.length;
-        console.log('data',response.data);  
+        console.log('data',objLength);  
         var img = document.createElement('img');
         img.src = profileImage;
         document.getElementById('lista').appendChild(img);
