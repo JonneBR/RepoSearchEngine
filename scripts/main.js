@@ -42,16 +42,21 @@ function addNameArray(liValue) {
   saveToStorage();
 }
 
+function appendImageToPrint(){
+  var img = document.createElement('img');
+  img.src = name[0];
+  document.getElementById('lista').appendChild(img);
+}
+
 function printArrayNames() {
   name.length > 5 ? highligthMenuRepo(0) : highligthMenuProfile(1); // Highligth menu
 
   if (name.length > 0) {
-    for (var i = 0; i < 1; i++) {
-      var img = document.createElement('img');
-      img.src = name[i];
-      document.getElementById('lista').appendChild(img);
+    // for (var i = 0; i < 1; i++) {
+    //   console.log("name:", name.length);
+      appendImageToPrint();
      
-    }
+    // }
     for (var i = 1; i < name.length; i++) { // bug of image and Name is here
       var lista = document.getElementById('lista');
       var li = document.createElement('li');
