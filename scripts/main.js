@@ -48,21 +48,26 @@ function appendImageToPrint(){
   document.getElementById('lista').appendChild(img);
 }
 
-function printArrayNames() {
-  name.length > 5 ? highligthMenuRepo(0) : highligthMenuProfile(1); // Highligth menu
+function gettingUserDadaFromArray(i){
+  for (i; i < name.length; i++) { // bug of image and Name is here
+    var lista = document.getElementById('lista');
+    var li = document.createElement('li');
+    li.innerHTML = name[i];
+    lista.appendChild(li);
+  }
+}
 
-  if (name.length > 0) {
-    // for (var i = 0; i < 1; i++) {
-    //   console.log("name:", name.length);
-      appendImageToPrint();
-     
-    // }
-    for (var i = 1; i < name.length; i++) { // bug of image and Name is here
-      var lista = document.getElementById('lista');
-      var li = document.createElement('li');
-      li.innerHTML = name[i];
-      lista.appendChild(li);
-    }
+function printUserInformations() {
+  name.length > 5 ? highligthMenuRepo(0) : highligthMenuProfile(1); // Highligth menu
+  
+  if (name.length > 0 && name.length <= 3) {
+    var i = 0;
+    gettingUserDadaFromArray(i);
+  }else if(name.length > 0 && name.length > 3){
+    var i = 1;
+    appendImageToPrint();
+    gettingUserDadaFromArray(i);
+
   }
   getMenuHiddenOrVisible(name.length);
 }
@@ -128,7 +133,7 @@ buttonDelete.onclick = deleteRepo;
 // userProfile.onclick = userInformations;
 
 
-printArrayNames();
+printUserInformations();
 
 window.addEventListener("load", () => {
   document.querySelector("#user-profile").addEventListener("click", e => {
@@ -144,7 +149,7 @@ window.addEventListener("load", () => {
       deleteRepo();
       // buscarDadosNaApi()
       highligthMenuProfile(0);
-    highligthMenuRepo(1);
+      highligthMenuRepo(1);
       checarUsuarioExisteAPI();
       // userInformations(response);
       // Can also cancel the event and manually navigate
