@@ -18,6 +18,8 @@ function userInformations(){
     var userBio = response.data.bio;
     // console.log('teste exertnal',response.data);
     // saveData(profileImage);
+    addNameArray(profileImage);
+    appendImageToPrint();
     saveData('Nome: ',userName);
     saveData('País: ',userLocation);
     saveData('Empresa: ',userCompany);
@@ -40,12 +42,12 @@ function userInformations(){
 }
 
 function saveData(info,responseInformation){
-        var p = document.createElement('p');
+        var li = document.createElement('li');
         
-        p.innerHTML = info + responseInformation;
-        addNameArray(p.innerHTML);
-        getMenuHiddenOrVisible(p.innerHTML);
-        lista.appendChild(p);
+        li.innerHTML = info + responseInformation;
+        addNameArray(li.innerHTML);
+        getMenuHiddenOrVisible(li.innerHTML);
+        lista.appendChild(li);
         menuContainer[0].style.visibility = 'visible';
         // console.log("??", responseInformation);
       
