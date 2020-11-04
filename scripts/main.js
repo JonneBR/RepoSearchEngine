@@ -60,12 +60,13 @@ function gettingUserDataFromArray(i){
 function printUserInformations() {
   name.length > 5 ? highligthMenuRepo(0) : highligthMenuProfile(1); // Highligth menu
   
-  if (name.length > 0 && name.length <= 3) {
-    var i = 1;
-    gettingUserDataFromArray(i);
-  }else if(name.length > 0 && name.length > 3){
+  if (name.length > 0 && name.length <= 4) {
     var i = 1;
     appendImageToPrint();
+    gettingUserDataFromArray(i);
+    console.log("ENTRANDO??");
+  }else if(name.length > 0 && name.length > 3){
+    var i = 0;
     gettingUserDataFromArray(i);
 
   }

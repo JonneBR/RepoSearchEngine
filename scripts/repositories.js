@@ -1,7 +1,7 @@
 function PegarDadosNaAPI(response) {
     console.log('RETURN', response);
-    var profileImage = response.data.avatar_url;
-    console.log(profileImage);
+    // var profileImage = response.data.avatar_url;
+    // console.log(profileImage);
     var lista = document.getElementById('lista');
     
   
@@ -10,10 +10,10 @@ function PegarDadosNaAPI(response) {
       .then(function (response) {
         var objLength = response.data.length;
         console.log('data',objLength);  
-        var img = document.createElement('img');
-        img.src = profileImage;
-        document.getElementById('lista').appendChild(img);
-        addNameArray(profileImage);
+        // var img = document.createElement('img');
+        // img.src = profileImage;
+        // document.getElementById('lista').appendChild(img);
+        // addNameArray(profileImage);
         printarDadosDoRepositorio(objLength,lista,response);
         
       })
