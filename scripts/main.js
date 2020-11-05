@@ -4,6 +4,29 @@ const buttonDelete = document.getElementById('btn-delete');
 const menuContainer = document.getElementsByClassName('menu-container');
 const userProfile = document.getElementById('user-profile');
 const urlAPI = 'https://api.github.com/users/';
+const mainMenu = document.querySelector('.mainMenu');
+const openMenu = document.querySelector('.openMenu');
+const closeMenu = document.querySelector('.closeMenu');
+console.log(closeMenu);
+
+openMenu.addEventListener('click',show);
+closeMenu.addEventListener('click',close);
+
+function show(){
+  mainMenu.style.display = 'flex';
+  mainMenu.style.top = '0';
+  // mainMenu.style.background = 'red';
+}
+function close(){
+  mainMenu.style.display = 'none';
+  // mainMenu.style.background = 'red';
+}
+
+function show(){
+  mainMenu.style.display = 'flex';
+  mainMenu.style.top = '0';
+  // mainMenu.style.background = 'red';
+}
 
 const userRepositories = document.getElementById('user-repositories');
 

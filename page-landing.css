@@ -6,19 +6,58 @@
   background: var(--color-primary);
 }
 
-.topnav {
-  height: 4.5rem;
-  width: 100%;
+nav .mainMenu .closeMenu {
+  display: block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
   /* border: 1px solid red; */
-  text-align: right;
-  margin-right: 2rem;
 }
 
 .openMenu i {
   color: white;
   font-size: 3rem;
+  display: block;
+  position: absolute;
+  top: 35px;
+  right: 18px;
   cursor: pointer;
-  margin-top: 1.5rem;
+  /* border: 1px solid red; */
+}
+
+.closeMenu {
+  color: white;
+  font-size: 3rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  text-align: right;
+  /* border: 1px solid red; */
+  /* display: none; */
+}
+
+nav .mainMenu {
+  height: 100vh;
+  /* width: 100%; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  transition: top 1s ease;
+  display: none;
+}
+
+nav .mainMenu li a {
+  display: inline-block;
+  padding: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 1.5rem;
 }
 
 .openMenu i:hover {
