@@ -6,6 +6,25 @@
   background: var(--color-primary);
 }
 
+.topnav {
+  height: 4.5rem;
+  width: 100%;
+  /* border: 1px solid red; */
+  text-align: right;
+  margin-right: 2rem;
+}
+
+.openMenu i {
+  color: white;
+  font-size: 3rem;
+  cursor: pointer;
+  margin-top: 1.5rem;
+}
+
+.openMenu i:hover {
+  color: var(--color-primary-font);
+}
+
 #container {
   display: flex;
   flex-direction: column;
@@ -170,6 +189,7 @@
     width: 120%;
     /* border: 1px solid red; */
   }
+
   #logo-container img {
     /* border: 1px solid red; */
     margin: 0;
