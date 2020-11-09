@@ -276,3 +276,17 @@ nav .mainMenu li a {
     /* border: 1px solid red; */
   }
 }
+
+#form-container {
+  /* border: 1px solid red; */
+  padding: 2rem;
+}
+
+label,
+input {
+  display: block;
+}
+
+label {
+  margin-bottom: 20px;
+}
