@@ -81,7 +81,7 @@ function gettingUserDataFromArray(i){
 }
 
 function printUserInformations() {
-  name.length > 5 ? highligthMenuRepo(0) : highligthMenuProfile(1); // Highligth menu
+  // name.length > 5 ? highligthMenuRepo(0) : highligthMenuProfile(1); // Highligth menu
   
   if (name.length > 0 && name.length <= 4) {
     var i = 1;
@@ -133,16 +133,19 @@ window.addEventListener("load", () => {
 
 window.addEventListener("load", () => {
   document.querySelector("#user-repositories").addEventListener("click", e => {
-      // alert('response'); 
       deleteRepo();
-      // buscarDadosNaApi()
       highligthMenuProfile(0);
       highligthMenuRepo(1);
       checarUsuarioExisteAPI();
-      // userInformations(response);
-      // Can also cancel the event and manually navigate
-      // e.preventDefault();
-      // window.location = e.target.href;
+     
+  });
+});
+
+window.addEventListener("load", () => {
+  document.querySelector("#user-contact").addEventListener("click", e => {
+      highligthMenuProfile(0);
+      highligthMenuRepo(1);
+      contactInformations();
   });
 });
 
@@ -151,3 +154,4 @@ window.addEventListener("load", () => {
 function saveToStorage() {
   localStorage.setItem('list_names', JSON.stringify(name));
 }
+
