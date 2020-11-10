@@ -277,16 +277,26 @@ nav .mainMenu li a {
   }
 }
 
-#form-container {
-  /* border: 1px solid red; */
-  padding: 2rem;
-}
-
-label,
-input {
+#form-container input {
   display: block;
+  font-size: 20px;
+  color: #fff;
+  width: 25rem;
+  height: 3rem;
+  background: rgba(0, 0, 0, 0.3);
 }
 
-label {
-  margin-bottom: 20px;
+#comment-form {
+  font-size: 20px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#btnSubmit {
+  display: block;
+  margin-top: 1.3rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  /* color: white; */
+  /* background: rgba(0, 0, 0, 0.3); */
 }
