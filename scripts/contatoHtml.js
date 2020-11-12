@@ -12,6 +12,7 @@ class UserInformations{
     formSubmit(){
         this.btnSubmit.onclick = event => {
             this.infoValidationNameField(event);
+            this.infoValidationEmailField(event);
         }
     }
 
@@ -29,12 +30,12 @@ class UserInformations{
             // event.preventDefault();
         }
     }
-    // infoValidationEmailField(){
-    //     if(this.emailForm.value.length <= '' ){
-    //         event.preventDefault();
-    //             this.emptyInputErrorMessage(this.emailForm,`Campo não pode estar vazio!`)
-    //     }
-    // }
+    infoValidationEmailField(event){
+        if(this.emailForm.value.length <= '' ){
+            event.preventDefault();
+                this.emptyInputErrorMessage(this.emailForm,`Campo não pode estar vazio!`)
+        }
+    }
 
     emptyInputErrorMessage(form,errorMessage){
         const formControl = form.parentElement;
