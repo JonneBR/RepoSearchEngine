@@ -277,8 +277,15 @@ nav .mainMenu li a {
   }
 }
 
+small {
+  color: #e74c3c;
+  visibility: hidden;
+  /* border: 1px solid red; */
+}
+
 #form-container input {
   display: block;
+  margin: 0;
   font-size: 20px;
   color: #fff;
   width: 25rem;
