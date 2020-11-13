@@ -6,6 +6,7 @@ class UserInformations{
         this.commentForm = document.getElementById("comment-form");
 
         this.formSubmit();
+       
     }
 
 
@@ -27,14 +28,20 @@ class UserInformations{
         } 
         else{
             this.CorrectMessage(this.nameForm);
-            // event.preventDefault();
         }
     }
     infoValidationEmailField(event){
-        if(this.emailForm.value.length <= '' ){
-            event.preventDefault();
+        const emailValidator = /\S+@\S+/;
+        if (emailValidator.test(String(this.emailForm.value).toLocaleLowerCase()) === true) {
+            this.CorrectMessage(this.emailForm);
+        }else if(this.emailForm.value.length === 0){
+                event.preventDefault();
                 this.emptyInputErrorMessage(this.emailForm,`Campo não pode estar vazio!`)
-        }
+            }else {
+                event.preventDefault();
+                this.emptyInputErrorMessage(this.emailForm, `O Email não corresponde`);
+              }
+        
     }
 
     emptyInputErrorMessage(form,errorMessage){
