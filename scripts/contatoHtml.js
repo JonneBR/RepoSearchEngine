@@ -12,45 +12,47 @@ class UserInformations{
 
     formSubmit(){
         this.btnSubmit.onclick = event => {
-            this.infoValidationNameField(event);
-            this.infoValidationEmailField(event);
-            this.infoValidationCommentField(event);
+            this.arrayReturns = [this.infoValidationNameField(event), this.infoValidationEmailField(event),this.infoValidationCommentField(event)]
+            this.validator = this.arrayReturns.every(item => item === true)
+            if(this.validator === true)
+                alert("Mensagem enviada com sucesso!")
+            else
+                event.preventDefault();
         }
+        
     }
 
 
     infoValidationNameField(event){
         if(this.nameForm.value.length === 0 ){
-            event.preventDefault();
                 this.emptyInputErrorMessage(this.nameForm,`Campo não pode estar vazio!`)
         } else if(this.nameForm.value.length >= 1 && this.nameForm.value.length <= 3 ){
-            event.preventDefault();
                 this.emptyInputErrorMessage(this.nameForm,`Campo requer mais de 3 caracteres`)
         } 
         else{
             this.CorrectMessage(this.nameForm);
+            return true;
         }
     }
     infoValidationEmailField(event){
         const emailValidator = /\S+@\S+/;
         if (emailValidator.test(String(this.emailForm.value).toLocaleLowerCase()) === true) {
             this.CorrectMessage(this.emailForm);
+            return true;
         }else if(this.emailForm.value.length === 0){
-                event.preventDefault();
                 this.emptyInputErrorMessage(this.emailForm,`Campo não pode estar vazio!`)
             }else {
-                event.preventDefault();
                 this.emptyInputErrorMessage(this.emailForm, `O Email não corresponde`);
-              }
+            }
         
     }
 
     infoValidationCommentField(event){
         if(this.commentForm.value.length > 150 || this.commentForm.value.length === 0 ){
-            event.preventDefault();
             this.commentForm.parentElement.querySelector("textarea").style.border = "1px solid red";
         }else{
             this.commentForm.parentElement.querySelector("textarea").style.border = "1px solid green";
+            return true;
         }
 
     }
