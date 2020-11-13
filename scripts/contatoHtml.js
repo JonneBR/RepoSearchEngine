@@ -14,6 +14,7 @@ class UserInformations{
         this.btnSubmit.onclick = event => {
             this.infoValidationNameField(event);
             this.infoValidationEmailField(event);
+            this.infoValidationCommentField(event);
         }
     }
 
@@ -42,6 +43,16 @@ class UserInformations{
                 this.emptyInputErrorMessage(this.emailForm, `O Email não corresponde`);
               }
         
+    }
+
+    infoValidationCommentField(event){
+        if(this.commentForm.value.length > 150 || this.commentForm.value.length === 0 ){
+            event.preventDefault();
+            this.commentForm.parentElement.querySelector("textarea").style.border = "1px solid red";
+        }else{
+            this.commentForm.parentElement.querySelector("textarea").style.border = "1px solid green";
+        }
+
     }
 
     emptyInputErrorMessage(form,errorMessage){
