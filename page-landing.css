@@ -283,6 +283,11 @@ small {
   /* border: 1px solid red; */
 }
 
+#form-container #nameForm {
+  margin-bottom: -2rem;
+  /* border: 1px solid red; */
+}
+
 #form-container input {
   display: block;
   margin: 0;
