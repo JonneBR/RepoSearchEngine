@@ -1,0 +1,115 @@
+:root {
+  font-size: 80%;
+}
+
+#page-landing {
+  background: var(--color-primary);
+  margin: 0;
+  padding: 0;
+  /* border: 1px solid red; */
+}
+
+nav .mainMenu .closeMenu {
+  display: block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.openMenu i {
+  color: white;
+  font-size: 3rem;
+  display: block;
+  position: absolute;
+  top: 35px;
+  right: 18px;
+  cursor: pointer;
+  /* border: 1px solid red; */
+}
+
+.closeMenu {
+  color: white;
+  font-size: 3rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  text-align: right;
+  /* border: 1px solid red; */
+  /* display: none; */
+}
+
+nav .mainMenu {
+  height: 100vh;
+  /* width: 100%; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  transition: top 1s ease;
+  display: none;
+}
+
+nav .mainMenu li a {
+  display: inline-block;
+  padding: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.openMenu i:hover {
+  color: var(--color-primary-font);
+}
+
+#container {
+  display: flex;
+  /* position: absolute; */
+  align-items: center;
+  max-width: 900px;
+  margin: 0;
+  width: 100%;
+  /* border: 1px solid red; */
+}
+
+#logo-container {
+  display: flex;
+  align-self: center;
+  width: 100%;
+  /* border: 1px solid red; */
+}
+
+#logo-image {
+  width: 5rem;
+}
+
+#logo-text {
+  width: 15rem;
+}
+
+@media (min-width: 900px) {
+  body {
+    display: inline;
+  }
+  #logo-container {
+    margin: 0;
+    max-width: 1000px;
+    width: 100%;
+    /* border: 1px solid red; */
+  }
+
+  #logo-container img {
+    /* border: 1px solid red; */
+    margin: 0;
+  }
+  #logo-container #logo-text {
+    width: 15rem;
+  }
+  #logo-container #logo-image {
+    width: 5rem;
+  }
+}
